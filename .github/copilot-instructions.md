@@ -65,8 +65,6 @@ When working in agent mode on this project:
 3. Test changes by running the application and accessing relevant URLs.
 4. Run or extend automated tests before committing.
 
-
-
 ## Safety Guardrails
 
 - Never accept code you do not understand—ask Copilot to clarify in comments or chat.
