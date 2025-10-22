@@ -134,7 +134,7 @@ Execute a pre-built prompt file to transform the entire application to dark mode
 
 ### Step 2: Review the Prompt File
 1. Open `.github/prompts/dark-mode.prompt.md`
-2. Review the YAML front matter:
+2. Review the configuration details between the `---` markers at the top:
    - `mode: agent`
    - `model: Claude Sonnet 4`
    - `description: Enhance the FastAPI training app with an accessible dark theme`
