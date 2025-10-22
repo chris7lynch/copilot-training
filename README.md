@@ -34,7 +34,10 @@ This repo hosts a minimal FastAPI web app coupled with light CSS and JavaScript.
 ## Working in VS Code
 
 1. **Create a virtual environment**
-   - Open the command palette (`Ctrl+Shift+P`) and run `Python: Create Environment...` → `Venv` → select your interpreter.
+   - Open the command palette:
+     - **Windows/Linux**: `Ctrl+Shift+P`
+     - **Mac**: `⇧⌘P` (Shift+Command+P)
+   - Run `Python: Create Environment...` → `Venv` → select your interpreter.
    - Alternatively, run `py -m venv .venv` in the integrated terminal.
    - When prompted, allow VS Code to activate the environment. You can confirm the environment by checking the Python interpreter shown in the status bar.
    - If VS Code does not prompt for activation, manually run `.\.venv\Scripts\activate` (PowerShell: `.\.venv\Scripts\Activate.ps1`).
@@ -59,7 +62,9 @@ This repo hosts a minimal FastAPI web app coupled with light CSS and JavaScript.
 5. **Working with Prompt Files**
    - Create prompt files in `.github/prompts/` with the `.prompt.md` extension for structured agent workflows.
    - Use YAML front matter to define `mode: agent`, `model`, and `description` fields.
-   - Execute prompt files by opening them in VS Code and using the "Run Prompt" command from the command palette (`Ctrl+Shift+P`).
+   - Execute prompt files by opening them in VS Code and using the "Run Prompt" command from the command palette:
+     - **Windows/Linux**: `Ctrl+Shift+P`
+     - **Mac**: `⇧⌘P` (Shift+Command+P)
    - Example: Open `.github/prompts/dark-mode.prompt.md` and run it to automatically apply dark theme styling to the app.
 
 ## Security Training Module

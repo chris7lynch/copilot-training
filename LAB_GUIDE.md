@@ -27,7 +27,9 @@ By the end of this lab, you will:
 
 2. **Create a virtual environment**:
    - Open VS Code in the project folder
-   - Open the Command Palette (`Ctrl+Shift+P` on Windows/Linux, `⇧⌘P` on Mac)
+   - Open the Command Palette:
+     - **Windows/Linux**: `Ctrl+Shift+P`
+     - **Mac**: `⇧⌘P` (Shift+Command+P)
    - Run `Python: Create Environment...` → `Venv` → select your Python interpreter
    - **Alternative (if VS Code doesn't prompt)**: In the integrated terminal, run:
      ```bash
@@ -54,7 +56,6 @@ By the end of this lab, you will:
 5. **Verify setup**:
    - Open `http://127.0.0.1:8000` in your browser
    - You should see the Copilot Training Demo homepage
-   - Test the vulnerable endpoint: `http://127.0.0.1:8000/vulnerable/users/admin`
 
 ---
 
@@ -73,12 +74,24 @@ Use GitHub Copilot Chat to identify and fix a SQL injection vulnerability, demon
    - Malicious: `http://127.0.0.1:8000/vulnerable/users/admin%27%20OR%20%271%27%3D%271`
    - Compare: `http://127.0.0.1:8000/vulnerable/users` (see all users)
 
-2. Notice how the malicious URL returns all users instead of just "admin"
+2. **Understanding the Attack**: The malicious URL contains `admin' OR '1'='1` (URL-encoded above). This manipulates the SQL query from:
+   ```sql
+   SELECT * FROM users WHERE username = 'admin'
+   ```
+   Into:
+   ```sql
+   SELECT * FROM users WHERE username = 'admin' OR '1'='1'
+   ```
+   Since `'1'='1'` is always true, the query returns all users instead of just "admin", bypassing the intended access control.
+
+3. Notice how the malicious URL returns all users instead of just "admin"
 
 ### Step 2: Use Copilot to Identify the Issue
 1. Open `vulnerabilities/sql_injection/vulnerable_routes.py`
 2. Find the `get_user_by_username_vulnerable()` function
-3. Select the function and open Copilot Chat (`Ctrl+Shift+I`)
+3. Select the function and open Copilot Chat:
+   - **Windows/Linux**: `Ctrl+Shift+I` or `Ctrl+I`
+   - **Mac**: `⌃⇧I` (Control+Shift+I) or `⌘I` (Command+I)
 4. Ask Copilot:
    ```
    Review the get_user_by_username_vulnerable function for security vulnerabilities. What's wrong with this SQL query construction?
@@ -129,7 +142,9 @@ Execute a pre-built prompt file to transform the entire application to dark mode
 
 ### Step 3: Execute the Prompt File
 1. With `dark-mode.prompt.md` open in VS Code
-2. Open the Command Palette (`Ctrl+Shift+P`)
+2. Open the Command Palette:
+   - **Windows/Linux**: `Ctrl+Shift+P`
+   - **Mac**: `⇧⌘P` (Shift+Command+P)
 3. Run the command: "Run Prompt"
 4. Wait for Copilot to analyze and modify the files
 5. Review the changes in:
@@ -297,7 +312,9 @@ Congratulations! You've completed the GitHub Copilot Training Lab. You should no
 
 **Copilot Chat not responding?**
 - Check your GitHub Copilot subscription status
-- Reload VS Code window (`Ctrl+Shift+P` → "Developer: Reload Window")
+- Reload VS Code window:
+  - **Windows/Linux**: `Ctrl+Shift+P` → "Developer: Reload Window"
+  - **Mac**: `⇧⌘P` (Shift+Command+P) → "Developer: Reload Window"
 - Verify internet connection
 - Sign out and back into GitHub in VS Code
 
@@ -308,9 +325,14 @@ Congratulations! You've completed the GitHub Copilot Training Lab. You should no
 - Verify the file has `.prompt.md` extension
 
 **Changes not taking effect?**
-- Save all files before testing (`Ctrl+S`)
-- Restart the FastAPI server (`Ctrl+C` in terminal, then re-run `uvicorn`)
-- Clear browser cache for CSS/JS changes (`Ctrl+F5`)
+- Save all files before testing:
+  - **Windows/Linux**: `Ctrl+S`
+  - **Mac**: `⌘S` (Command+S)
+- Restart the FastAPI server:
+  - **Windows/Linux/Mac**: `Ctrl+C` in terminal, then re-run `uvicorn`
+- Clear browser cache for CSS/JS changes:
+  - **Windows/Linux**: `Ctrl+F5` or `Ctrl+Shift+R`
+  - **Mac**: `⌘⇧R` (Command+Shift+R)
 - Check browser developer console for errors
 
 ### Getting Help
