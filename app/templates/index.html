@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copilot Training Demo</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>GitHub Copilot Training Sandbox</h1>
+      <p>Experiment with prompts, iterate quickly, and learn the workflows you can standardize with Copilot.</p>
+      <button id="prompt-idea">Need a prompt idea?</button>
+    </header>
+
+    <main class="content">
+      <section>
+        <h2>Quick Start</h2>
+        <ol>
+          <li>Open <code>app/main.py</code> in VS Code and explore the FastAPI endpoints.</li>
+          <li>Use Copilot chat to request a new endpoint or test, then review the suggestion.</li>
+          <li>Iterate on CSS or JavaScript with inline prompts to tune the user experience.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Copilot Prompt Tips</h2>
+        <ul id="tips">
+          {% for tip in tips %}
+          <li>{{ tip }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Workshop Idea Bank</h2>
+        <p>Use the prompt button above to surface facilitation ideas on demand.</p>
+        <div id="idea"></div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built with FastAPI · Tailor to your team's onboarding journey</small>
+    </footer>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>
